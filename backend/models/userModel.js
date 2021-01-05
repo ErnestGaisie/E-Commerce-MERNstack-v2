@@ -31,6 +31,15 @@ userSchema.methods.matchPassword = async function (enteredPassword) {
   return await bcrypyt.compare(enteredPassword, this.password);
 };
 
+userSchema.pre("save", async function (next) {
+  if (!this.isModified("password")) {
+    next();
+  }
+
+  const salt = await bcrypyt.genSalt(10);
+  this.password = await bcrypyt.hash(this.password, salt);
+});
+
 const User = mongoose.model("User", userSchema);
 
 export default User;
