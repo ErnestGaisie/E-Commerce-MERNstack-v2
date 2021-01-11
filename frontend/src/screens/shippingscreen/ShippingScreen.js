@@ -7,6 +7,7 @@ import FormContainer from "../../components/formcontainer/FormContainer";
 import "./ShippingScreen.css";
 
 import { saveShippingAddress } from "../../actions/cartActions";
+import CheckoutSteps from "../../components/checkoutsteps/CheckoutSteps";
 
 const ShippingScreen = ({ history }) => {
   const cart = useSelector((state) => state.cart);
@@ -27,6 +28,8 @@ const ShippingScreen = ({ history }) => {
 
   return (
     <FormContainer>
+      <CheckoutSteps step1 step2 />
+
       <h1>Shipping</h1>
 
       <Form onSubmit={submitHandler}>
