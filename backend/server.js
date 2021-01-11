@@ -6,7 +6,7 @@ import colors from "colors";
 import productRoutes from "./routes/productRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
 import { notFound, errorHandler } from "./middleware/errorMiddleware.js";
-import orderRoutes from "./routeS/orderRoutes.JS";
+import orderRoutes from "./routeS/orderRoutes.js";
 
 dotenv.config();
 
