@@ -29,6 +29,12 @@ app.use("/api/products", productRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/orders", orderRoutes);
 
+app.get("/api/config/paypal", (req, res) => {
+  res.send(
+    "AekFtZE1th5X50OB-jfBC1SXog1G-z9LsmRP6LPRHooquKG7fseGzlnpk5A5wm38V5lULWAlKwNHMnfS"
+  );
+});
+
 app.use(notFound);
 
 app.use(errorHandler);
