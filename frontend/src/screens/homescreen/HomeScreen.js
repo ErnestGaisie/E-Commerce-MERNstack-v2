@@ -7,18 +7,8 @@ import { listProducts } from "../../actions/productActions";
 import Loader from "../../components/loader/Loader";
 import Message from "../../components/message/Message";
 
-const HomeScreen = () => {
-  // const [products, setProducts] = useState([]);
-
-  // useEffect(() => {
-  //   const fetchProducts = async () => {
-  //     const { data } = await axios.get("/api/products");
-
-  //     setProducts(data);
-  //   };
-
-  //   fetchProducts();
-  // }, []);
+const HomeScreen = ({ match }) => {
+  const keyword = match.params.keyword;
 
   const dispatch = useDispatch();
 
@@ -26,8 +16,8 @@ const HomeScreen = () => {
   const { loading, error, products } = productList;
 
   useEffect(() => {
-    dispatch(listProducts());
-  }, [dispatch]);
+    dispatch(listProducts(keyword));
+  }, [dispatch, keyword]);
 
   return (
     <>
